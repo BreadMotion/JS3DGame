@@ -1,8 +1,7 @@
 class Canvas2D {
     /**constructor
-     * @param {HTMLCanvasElement} canvas element
-     * @param {IDrawPrimitive} drawObject Interface Draw Primitive Object* */
-    constructor(canvas, drawObject){
+     * @param {HTMLCanvasElement} canvas element* */
+    constructor(canvas){
         /**
          * @type {HTMLCanvasElement} */
         this.canvasElement = canvas;
@@ -11,18 +10,24 @@ class Canvas2D {
         this.context2D = this.canvasElement.getContext('2d');
         /**
          * @type {IDrawPrimitive}*/
-        this.drawObject = drawObject;
+        this.drawObject = new CanvasDrawPrimitive(this.context2D);
     }//constructor
 
     /**
      * @return {HTMLCanvasElement}*/
-    get canvas(){
+    get Canvas(){
         return this.canvasElement;
     }//get canvas
 
     /**
      * @return {CanvasRenderingContext2D} */
-    get context(){
+    get Context(){
         return this.context2D;
     }//get context
+
+    /**
+     * @return {IDrawPrimitive}*/
+    get DrawObject(){
+        return this.drawObject;
+    }//get drawObject
 }//class canvas2D

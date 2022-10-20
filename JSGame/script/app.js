@@ -48,8 +48,8 @@ var App = {
      * @param {number}   height - 描画フレームの縦 */
     AddCanvas(key, util, width, height){
         this.utils[key] = util;
-        this.canvases[key] = this.utils[key].canvas;
-        this.contexts[key] = this.utils[key].context;
+        this.canvases[key] = this.utils[key].Canvas;
+        this.contexts[key] = this.utils[key].Context;
         
         this.canvases[key].width = width;
         this.canvases[key].height = height;

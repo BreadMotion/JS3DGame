@@ -1,12 +1,18 @@
 class CanvasDrawPrimitive extends IDrawPrimitive{
+    /**constructor
+    * @param {CanvasRenderingContext2D}*/
+    constructor(context){
+        super(context);
+    }//constructor
+
       /**矩形を描画する(override)
      * @param {number} x - 矩形の左上の　X座標
      * @param {number} y - 矩形の左上の　Y座標
      * @param {number} width - 矩形の横幅
      * @param {number} height - 矩形の縦幅
      * @param {string} [color] - 矩形の色*/
-       DrawRect(x, y, width, height, color){
-        this.context2D.save();
+    DrawRect(x, y, width, height, color){
+        context2D.save();
         if(color != null) {
             this.context2D.fillStyle = color;
         }

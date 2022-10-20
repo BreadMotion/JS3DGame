@@ -1,4 +1,10 @@
-class IDrawPrimitive{
+class IDrawPrimitive {
+        /**constructor
+         * @param {CanvasRenderingContext2D}*/
+        constructor(context){
+            this.context2D = context;
+        }//constructor
+
         /**矩形を描画する
      * @param {number} x - 矩形の左上の　X座標
      * @param {number} y - 矩形の左上の　Y座標

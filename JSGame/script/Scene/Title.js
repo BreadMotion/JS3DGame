@@ -27,11 +27,11 @@ class Title extends IScene {
 
     /**テキストを描画する*/
     DrawText(){
-        App.Utils[window.canvasID[0]].DrawText(
+        App.utils[window.canvasID[0]].DrawObject.DrawText(
             '3D Game',
-            (App.Canvas_Width/2) - 245, 
-            (App.Canvas_Height/2) + 5,
-            'rgba(255, 255, 255, 0.6)',
+            (App.CANVAS_WIDTHs[window.canvasID[0]] / 2) - 245, 
+            (App.CANVAS_HEIGHTs[window.canvasID[0]] / 2) + 5,
+            'rgba(255, 255, 255, 1.0)',
             60
         );
     }//DrawText
