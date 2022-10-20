@@ -3,14 +3,14 @@
 
 /**アプリケーションオブジェクト*/
 var App = {
-    /**@type {Canvas2D}*/
-    util : null,
+    /**@type {Canvas2D{}}*/
+    utils : {},
     
-    /**@type {HTMLCanvasElement}*/
-    canvas : null,
+    /**@type {HTMLCanvasElement{}}*/
+    canvases : {},
 
-    /**@type {CanvasRenderingContext2D}*/
-    context : null,
+    /**@type {CanvasRenderingContext2D{}}*/
+    contexts : {},
     
     /**@type {Audio2D}*/
     audioContext : null,
@@ -18,26 +18,11 @@ var App = {
     /**@type {boolean}*/
     restart : false,
 
-    /**@type {number}*/
-    CANVAS_WIDTH  : 0,
+    /**@type {number{}}*/
+    CANVAS_WIDTHs  : {},
     
-    /**@type {number}*/
-    CANVAS_HEIGHT : 0,
-
-    /**@return {Canvas2D}*/
-    get Util(){ 
-        return this.util;
-    },//Util
-
-    /**@return {HTMLCanvasElement}*/
-    get Canvas(){
-        return this.canvas;
-    },//Canvas
-
-    /**@return {CanvasRenderingContext2D}*/
-    get Context(){
-        return this.context;
-    },//Context
+    /**@type {number{}}*/
+    CANVAS_HEIGHTs : {},
 
     /**@return {Audio2d}*/
     get Audio2D(){
@@ -49,32 +34,27 @@ var App = {
         return this.audioContext;
     },//AudioContext
 
-    /**@return {number} キャンバスの幅*/
-    get Canvas_Width(){
-        return this.CANVAS_WIDTH;
-    },//Canvas_Width
-
-    /**@return {number} キャンバスの高さ*/
-    get Canvas_Height(){
-        return this.CANVAS_HEIGHT;
-    },//Canvas_Height
-
     /**アプリケーションで使用するオブジェクトの初期化
-     * @param {Audio2D} audio - Web Audio APIを格納するオブジェクト
-     * @param {Canvas2d} util - キャンバスを格納しているオブジェクト
-     * @param {number} width - キャンバスの幅
-     * @param {number} height - キャンバスの高さ*/
-    Initialize(audio, util,width,height){
-        this.util = util;
-        this.canvas = this.util.canvas;
-        this.context = this.util.context;
+     * @param {Audio2D} audio - Web Audio APIを格納するオブジェクト*/
+    Initialize(audio){
         this.audio2D = audio;
         this.audioContext = this.audio2D.context;
-        
-        this.canvas.width = width;
-        this.CANVAS_WIDTH = width;
-
-        this.canvas.height = height;
-        this.CANVAS_HEIGHT = height;
     },//Initialize
+
+    /**キャンバスを追加する
+     * @param {String}   key    - Canvas2Dオブジェクトのキー
+     * @param {Canvas2D} util   - 描画フレームオブジェクト
+     * @param {number}   width  - 描画フレームの幅
+     * @param {number}   height - 描画フレームの縦 */
+    AddCanvas(key, util, width, height){
+        this.utils[key] = util;
+        this.canvases[key] = this.utils[key].canvas;
+        this.contexts[key] = this.utils[key].context;
+        
+        this.canvases[key].width = width;
+        this.canvases[key].height = height;
+
+        this.CANVAS_WIDTHs[key] = width;
+        this.CANVAS_HEIGHTs[key] = height;
+    }//AddCanvas
 };//var App

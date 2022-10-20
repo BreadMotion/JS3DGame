@@ -8,13 +8,19 @@
     window.isMouseLUp   = false;
     window.isMouseRDown = false;
     window.isMouseRUp   = false;
+    window.canvasID = ["mainCanvas"];
+    window.canvasSelector = ['#canvas'];
 
 //アプリケーションの初期化イベント
 window.addEventListener('load', ()=> {
     //ゲームで使用するアプリケーションのインスタンスの初期化
-    App.Initialize(
-        new Audio2D(),
-        new Canvas2D(document.body.querySelector('#canvas')),window.innerWidth,window.innerHeight);
+    App.Initialize(new Audio2D());
+    App.AddCanvas(
+        window.canvasID[0],
+        new Canvas2D(document.body.querySelector(window.canvasSelector[0]), new CanvasDrawPrimitive()),
+        window.innerWidth,
+        window.innerHeight
+    );
 
     //ロード
     LoadCheck();
@@ -46,6 +52,7 @@ function ClearBuffer(){
     App.context.fillRect(0,0, App.Canvas_Width, App.Canvas_Height);
 }//function ClearBuffer
 
+/**描画ウィンドウをリサイズする*/
 function ResizeWindow(){
     window.resizeTo(App.Canvas_Width, App.Canvas_Height);
     App.canvas.setAttribute("width", String(App.Canvas_Width));
