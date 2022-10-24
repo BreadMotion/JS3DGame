@@ -78,25 +78,3 @@ class Actor{
 function CreateActor(x,y,angle){
     return new Actor(x,y,angle);
 }//function CreateActor
-
-/**キャラクターコンポーネント付きアクターを生成
- * @param {number} x - 生成座標X
- * @param {number} y - 生成座標Y
- * @param {number} angle - 生成角度
- * @param {String} key - アプリケーションデータのキー
- * @param {CanvasRenderingContext2D} context - キャンバスコンテキスト
- * @param {number} drawPrimary - 描画優先順位
- * @param {boolean} canRot - 回転可能か*/
-function CreateActorHaveCharactor(x,y,angle,key,context,drawPrimary,canRot=true){
-    const data = AppData[key];
-    var actor = new Actor(x,y,angle);
-    
-    actor.AddComponent(
-        'CharactorComponent',context,
-        data.imageWidth, data.imageHeight,
-        data.scaleX,data.scaleY,
-        data.imagePath, 
-        (drawPrimary != undefined ? drawPrimary:data.drawPrimary), canRot);
-
-        return actor;
-}//CreateActorHaveCharactor

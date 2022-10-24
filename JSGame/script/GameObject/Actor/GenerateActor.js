@@ -5,8 +5,14 @@
  * @param {number} angle - 生成角度
  * @param {number} drawPrimary - 描画優先順位*/
  function GeneratePlayerActor(x=0,y=0,angle=0,drawPrimary){
-    const player = AppData.Player;
-    var actor = CreateActorHaveCharactor(x,y,angle,player.name,App.context,drawPrimary);
+    const playerData = AppData.Player;
+    let actor = CreateActor(x,y,angle);
+    AddCharactorComponent(
+        actor,  App.context, 
+        playerData.imageWidth, playerData.imageHeight,
+        playerData.scaleX,     playerData.scaleY,
+        playerData.imagePath,
+        (drawPrimary != undefined ? drawPrimary:data.drawPrimary), canRot);
 
     actor.Initialize();
     actor.PostInitialize();

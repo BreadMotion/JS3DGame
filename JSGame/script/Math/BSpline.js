@@ -1,4 +1,4 @@
-var BSpline = function(points,degree,copy){
+const BSpline = function(points,degree,copy){
     if(copy){
         this.points = []
         for(var i = 0; i < points.length; i++){

@@ -1,5 +1,5 @@
 /**マネージャーはシングルトンなのでクラスでは作らない*/
- var ActorManager = {
+ const ActorManager = {
     /**シーンの実体配列*/
     actors : [],
 

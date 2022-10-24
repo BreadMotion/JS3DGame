@@ -8,6 +8,7 @@
     window.isMouseLUp   = false;
     window.isMouseRDown = false;
     window.isMouseRUp   = false;
+    window.canvasBringLength = 30;
 
     window.canvasID = [];
     window.canvasSelector = [];
@@ -22,8 +23,8 @@ window.addEventListener('load', ()=> {
     App.AddCanvas(
         window.canvasID[0],
         new Canvas2D(document.body.querySelector(window.canvasSelector[0])),
-        window.innerWidth - 30,
-        window.innerHeight  - 30
+        window.innerWidth - window.canvasBringLength,
+        window.innerHeight  - window.canvasBringLength
     );
 
     //ロード
