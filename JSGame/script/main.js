@@ -22,8 +22,8 @@ window.addEventListener('load', ()=> {
     App.AddCanvas(
         window.canvasID[0],
         new Canvas2D(document.body.querySelector(window.canvasSelector[0])),
-        window.innerWidth,
-        window.innerHeight
+        window.innerWidth - 30,
+        window.innerHeight  - 30
     );
 
     //ロード
