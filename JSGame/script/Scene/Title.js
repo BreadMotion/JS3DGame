@@ -14,7 +14,6 @@ class Title extends IScene {
      * @param {number} time - シーンの経過時間*/
     CheckChangeScene(time){
         if(Date.now() > (1000 + this.startTime) && window.isKeyDown.key_Enter == true){
-            this.bgm.pause();
             SceneManager.Use('Game');
             this.startTime = 0;
         }
@@ -29,8 +28,8 @@ class Title extends IScene {
     DrawText(){
         App.utils[window.canvasID[0]].DrawObject.DrawText(
             '3D Game',
-            (App.CANVAS_WIDTHs[window.canvasID[0]] / 2) - 245, 
-            (App.CANVAS_HEIGHTs[window.canvasID[0]] / 2) + 5,
+            (App.CANVAS_WIDTHs[window.canvasID[0]] * 0.5) - 245, 
+            (App.CANVAS_HEIGHTs[window.canvasID[0]] * 0.5) + 5,
             'rgba(255, 255, 255, 1.0)',
             60
         );
@@ -47,7 +46,7 @@ class Title extends IScene {
 
     /**更新　オーバーライド*/
     Update(time){
-        this.CheckChangeScene(time);
+        //this.CheckChangeScene(time);
     }//Update
     
     /**描画　オーバーライド*/
