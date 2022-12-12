@@ -20,13 +20,17 @@
 window.addEventListener('load', ()=> {
     //ゲームで使用するアプリケーションのインスタンスの初期化
     App.Initialize(new Audio2D());
-    App.AddCanvas(
+
+    var canvasElement = document.body.querySelector(window.canvasSelector[0]);
+    const canvas2DObject = new Canvas2D(canvasElement);
+    const canvas3DObject = new Canvas3D(canvasElement);
+    App.AddCanvas2D(
         window.canvasID[0],
-        new Canvas2D(document.body.querySelector(window.canvasSelector[0])),
+        canvas2DObject,
         window.innerWidth - window.canvasBringLength,
         window.innerHeight  - window.canvasBringLength
     );
-
+    App.AddCanvas3D(window.canvasID[0], canvas3DObject);
     //ロード
     LoadCheck();
 },false);

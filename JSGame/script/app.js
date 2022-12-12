@@ -2,9 +2,12 @@
 //クラスでは生成しない
 
 /**アプリケーションオブジェクト*/
-var App = {
+const App = {
     /**@type {Canvas2D{}}*/
-    utils : {},
+    utils2D : {},
+
+    /**@type {Canvas3D{}}*/
+    utils3D : {},
     
     /**@type {HTMLCanvasElement{}}*/
     canvases : {},
@@ -24,30 +27,26 @@ var App = {
     /**@type {number{}}*/
     CANVAS_HEIGHTs : {},
 
-    /**@return {Audio2d}*/
-    get Audio2D(){
-        return this.audio2D;
-    },//audio2D
-
-    /**@return {AudioContext}*/
-    get AudioCtx(){
-        return this.audioContext;
-    },//AudioContext
-
     /**アプリケーションで使用するオブジェクトの初期化
      * @param {Audio2D} audio - Web Audio APIを格納するオブジェクト*/
     Initialize(audio){
         this.audio2D = audio;
         this.audioContext = this.audio2D.context;
+        this.utils2D = {};
+        this.utils3D = {};
+        this.canvases = {};
+        this.contexts = {};
+        this.restart = false;
+
     },//Initialize
 
-    /**キャンバスを追加する
+    /**2Dキャンバスを追加する
      * @param {String}   key    - Canvas2Dオブジェクトのキー
      * @param {Canvas2D} util   - 描画フレームオブジェクト
      * @param {number}   width  - 描画フレームの幅
      * @param {number}   height - 描画フレームの縦 */
-    AddCanvas(key, util, width, height){
-        this.utils[key] = util;
+    AddCanvas2D(key, util, width, height){
+        this.utils2D[key] = util;
         this.canvases[key] = this.utils[key].Canvas;
         this.contexts[key] = this.utils[key].Context;
         
@@ -56,5 +55,9 @@ var App = {
 
         this.CANVAS_WIDTHs[key] = width;
         this.CANVAS_HEIGHTs[key] = height;
-    }//AddCanvas
+    },//AddCanvas
+
+    AddCanvas3D(key, util){
+        this.utils3D[key] = util;
+    }//function AddCanvas3D
 };//var App
