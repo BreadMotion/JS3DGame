@@ -13,9 +13,12 @@ class SceneEntity extends IEntity{
         this.baseCamera = new THREE.PerspectiveCamera(90, canvas.canvasElement.width / canvas.canvasElement.height);
         
         const transformComponent = this.GetComponent(TransformComponent);
+        transformComponent.position.x += 50;
+        transformComponent.position.y -= 100;
+        transformComponent.position.z += 1000;
         const position = transformComponent.position;
-        const quaternion = transformComponent.quaternion;
+
         this.baseCamera.position.set(position.x,position.y,position.z);
-        this.baseCamera.rotation.set(quaternion.x,quaternion.y,quaternion.z,quaternion.w);
+        this.baseCamera.rotation.set(0.4,0.4,0.4);
     }//constructor
 }//class SceneEntity

@@ -74,17 +74,8 @@ function Update(){
     ResizeWindow();
     App.utils[window.canvasID[0]].ClearBuffer();
     SceneManager.Update();
-    Render();
-}//function Update
-
-/**更新フェーズ中に処理される大本の描画関数*/
-function Render(){
-    //ゲーム描画
-    SceneManager.Render();
-
-    //Update関数を再帰的に呼び出してループする
     requestAnimationFrame(Update);
-}//function Render
+}//function Update
 
 /**更新フェーズで発火するか常に調べるイベント*/
 function EventSetting(){

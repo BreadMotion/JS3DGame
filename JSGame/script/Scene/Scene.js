@@ -11,9 +11,6 @@ class IScene {
     /**更新 virtual method*/
     Update(time){}//Update
 
-    /**描画 virtual method*/
-    Render(){}//Render
-
     /**終了 virtual method*/
     Finalize(){}//Finalize
 }//class IScene

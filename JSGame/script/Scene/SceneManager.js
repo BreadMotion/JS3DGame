@@ -56,11 +56,7 @@ const SceneManager = {
         this.activeTime = (this.oldFrameTime - this.startTime) / 1000;
         this.activeScene.Update(this.activeTime);
         ++this.frame;
-    },//Update
 
-    /**シーンの描画*/
-    Render:function(){
-        this.activeScene.Render();
         this.frameTime = Date.now() - this.oldFrameTime;
-    }//Render
+    }//Update
 }//SceneManage

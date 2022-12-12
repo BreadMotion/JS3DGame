@@ -32,6 +32,9 @@ class RenderSystem extends ISystem{
         let sceneEntity = this.GetSceneEntity();
         let otherEntity = this.GetEntity("CameraComponent");
         const canvas = App.utils[window.canvasID[0]];
+        //sceneEntity.baseCamera.position.x += 1;
+        //sceneEntity.baseCamera.position.y -= 1;
+        sceneEntity.baseCamera.position.z -= 1;
         
         if(otherEntity.length == 0) canvas.renderer.render(sceneEntity.scene, sceneEntity.baseCamera);
         else canvas.renderer.render(sceneEntity.scene, otherEntity.GetComponent("CameraComponent").camera);
