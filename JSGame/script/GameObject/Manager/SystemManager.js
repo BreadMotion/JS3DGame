@@ -6,13 +6,13 @@ const SystemManager = {
     /**初期化*/
     Initialize : function(){
         this.systems = [];
-        this.AddSystem(new TransformSystem(EntityManager.entities));
+        this.AddSystem(new MovementSystem(EntityManager.entities));
     },//function Iinitialize
 
     /**保持しているシステムオブジェクトの全消去*/
     ClearSystems: function(){
         this.systems = [];
-        AddSystem(new TransformSystem(EntityManager.entities));
+        this.AddSystem(new MovementSystem(EntityManager.entities));
     },//function ClearSystems
 
     /**システム追加関数

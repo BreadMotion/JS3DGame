@@ -7,14 +7,14 @@ class IComponent{
      * @param {IEntity} entity
      * @return {IEntity} owner*/
     AttachTo(entity){
-        this.owner = entity;
         entity.AddComponent(this);
+        this.owner = entity;
         return this.owner;
     }//function AttachTo
 
     /**コンポーネントをエンティティから削除するメソッド*/
     Deatach(){
-        if(!this.owner)return;
+        if(!this.owner) return;
         this.owner.RemoveComponent(this);
         this.owner = null;
     }//function Deatach

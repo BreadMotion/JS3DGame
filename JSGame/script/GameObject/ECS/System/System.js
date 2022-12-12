@@ -1,11 +1,5 @@
 /**ゲームオブジェクトの拡張システム**/
 class ISystem{
-    /**constructor
-     * @param{Array<IEntity>} entities*/
-    constructor(entities){
-        this.entities = entities;
-    }//constructor
-
     /**事前更新*/
     PreUpdate(){}//function PreUpdate
 
@@ -18,6 +12,6 @@ class ISystem{
     /**コンポーネントの型を指定して、その型を持つエンティティを返すメソッド
      * @return {componentType} componentType */
     GetEntity(componentType){
-        return this.entities.filter(entity => entity.HasComponent(componentType));
+        return EntityManager.entities.filter(entity => entity.HasComponent(componentType));
     }//function GetEntity
 }//class System

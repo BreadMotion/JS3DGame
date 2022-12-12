@@ -22,7 +22,7 @@ class IEntity{
    }// function GetComponent
 
    /**コンポーネントがあるか確認する
-    * @param{ComponentType} componentType*/
+    * @param {ComponentType} componentType*/
    HasComponent(componentType){
     return this.components.some(com => com instanceof componentType);
    }//function HasComponent
@@ -31,6 +31,7 @@ class IEntity{
     * @param{ID} ID
     * @return {componentType} componentType*/
    RemoveComponent(componentType){
+    this.components.delete(component);
     this.components = this.components.filter(com => !(com instanceof componentType));
    }//function RemoveComponent
 }//class Entity

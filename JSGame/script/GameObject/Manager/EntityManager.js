@@ -1,7 +1,10 @@
 /**Entity管理インスタンス*/
 const EntityManager = {
-    /**@type {IEntity}*/
+    /**@type {Array<IEntity>}*/
     entities : [],
+
+    /**@return {Array<IEntity>}*/
+    get Entities(){ return this.entities; },
 
     /**初期化*/
     Initialize : function(){
@@ -13,10 +16,16 @@ const EntityManager = {
         this.enitities = [];
     },//Clear
 
-    AddEntity : function(){
-        let newEntity  = new IEntity();
-        this.entities.push(newEntity);
-        return newEntity;
+    AddEntity : function(entity){
+        if(entity !== undefined){
+            this.entities.push(entity);
+            return entity;
+        }
+        else{
+            let newEntity  = new IEntity();
+            this.entities.push(newEntity);
+            return newEntity;
+        }
     },//AddEntity
 
     RemoveEntity : function(entity){
