@@ -27,17 +27,6 @@ class Title extends IScene {
         EntityManager.AddEntity();
     }//GenerateActorAtSceneStart
 
-    /**テキストを描画する*/
-    DrawText(){
-        App.utils[window.canvasID[0]].DrawObject.DrawText(
-            '3D Game',
-            (App.CANVAS_WIDTHs[window.canvasID[0]] * 0.5) - 245, 
-            (App.CANVAS_HEIGHTs[window.canvasID[0]] * 0.5) + 5,
-            'rgba(255, 255, 255, 1.0)',
-            60
-        );
-    }//DrawText
-    
     //-----------------------override method------------------//
     /**初期化　オーバーライド*/
     Initialize(){
@@ -52,11 +41,6 @@ class Title extends IScene {
         SystemManager.Update();
         //this.CheckChangeScene(time);
     }//Update
-    
-    /**描画　オーバーライド*/
-    Render(){        
-        this.DrawText();
-    }//Render
 
     /**終了処理　オーバーライド*/
     Finalize(){}//Finalize

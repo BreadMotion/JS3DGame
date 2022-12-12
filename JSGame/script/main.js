@@ -22,15 +22,15 @@ window.addEventListener('load', ()=> {
     App.Initialize(new Audio2D());
 
     var canvasElement = document.body.querySelector(window.canvasSelector[0]);
-    const canvas2DObject = new Canvas2D(canvasElement);
+    /**const canvas2DObject = new Canvas2D(canvasElement);*/
     const canvas3DObject = new Canvas3D(canvasElement);
-    App.AddCanvas2D(
-        window.canvasID[0],
-        canvas2DObject,
+    App.AddCanvas(
+        window.canvasID[0], 
+        canvas3DObject,
         window.innerWidth - window.canvasBringLength,
         window.innerHeight  - window.canvasBringLength
     );
-    App.AddCanvas3D(window.canvasID[0], canvas3DObject);
+
     //ロード
     LoadCheck();
 },false);
@@ -55,18 +55,12 @@ function LoadCheck(){
     }
 }// function LoadCheck
 
-/**描画バッファを綺麗にする*/
-function ClearBuffer(){
-    const value = 0.0; 
-    App.contexts[window.canvasID[0]].globalAlpha = 1.0;
-    App.contexts[window.canvasID[0]].fillRect(0,0, App.CANVAS_WIDTHs[window.canvasID[0]], App.CANVAS_HEIGHTs[window.canvasID[0]]);
-}//function ClearBuffer
-
 /**描画ウィンドウをリサイズする*/
 function ResizeWindow(){
-    window.resizeTo(App.CANVAS_WIDTHs[window.canvasID[0]], App.CANVAS_HEIGHTs[window.canvasID[0]]);
-    App.canvases[window.canvasID[0]].setAttribute("width", String(App.CANVAS_WIDTHs[window.canvasID[0]]));
-    App.canvases[window.canvasID[0]].setAttribute("height", String(App.CANVAS_HEIGHTs[window.canvasID[0]]));
+    const util = App.utils[window.canvasID[0]];
+    window.resizeTo(util.canvasElement.width, util.canvasElement.height);
+    util.canvasElement.setAttribute("width", String(util.canvasElement.width));
+    util.canvasElement.setAttribute("height", String(util.canvasElement.height));
 }//function ResizeWindow
 
 /**初期化*/
@@ -78,7 +72,7 @@ function Initialize(){
 /**再帰更新*/
 function Update(){
     ResizeWindow();
-    ClearBuffer();
+    App.utils[window.canvasID[0]].ClearBuffer();
     SceneManager.Update();
     Render();
 }//function Update
