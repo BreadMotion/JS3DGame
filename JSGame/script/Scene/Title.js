@@ -20,8 +20,11 @@ class Title extends IScene {
     }//CheckChangeScene
 
     /**アクターを構築*/
-    GenerateActorAtSceneStart(){
-        ActorManager.actors = [];
+    GenerateEntityAtSceneStart(){
+        EntityManager.Initialize();
+        SystemManager.Initialize();
+
+        EntityManager.AddEntity();
     }//GenerateActorAtSceneStart
 
     /**テキストを描画する*/
@@ -39,13 +42,14 @@ class Title extends IScene {
     /**初期化　オーバーライド*/
     Initialize(){
         this.visitsNum++;
-        this.GenerateActorAtSceneStart();
+        this.GenerateEntityAtSceneStart();
         gradationValue = 0;
         this.startTime = Date.now();
     }//Initialize
 
     /**更新　オーバーライド*/
     Update(time){
+        SystemManager.Update();
         //this.CheckChangeScene(time);
     }//Update
     

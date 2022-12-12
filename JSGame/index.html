@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="./css/style.css">
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <script src="fengari-web.js" type="text/javascript"></script>
+       <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>-->
+        <!--<script src="fengari-web.js" type="text/javascript"></script>-->
     </head>
     <body>
         <canvas id="canvas"></canvas>
@@ -27,16 +27,16 @@
         <script type="text/javascript" src="./script/Math/BSpline.js"></script>
         <script type="text/javascript" src="./script/Math/Lerp.js"></script>
 
-        <script type="text/javascript" src="./script/GameScore.js"></script>
+        <script type="text/javascript" src="./script/GameObject/ECS/System/System.js"></script>
+        <script type="text/javascript" src="./script/GameObject/ECS/System/DerivedSystem/TransformSystem.js"></script>
 
-        <script type="text/javascript" src="./script/GameObject/Component/Component.js"></script>
-        <script type="text/javascript" src="./script/GameObject/Component/TransformComponent.js"></script>
-        <script type="text/javascript" src="./script/GameObject/Component/CharactorComponent.js"></script>
-        <script type="text/javascript" src="./script/GameObject/Component/CollisionComponent.js"></script>
+        <script type="text/javascript" src="./script/GameObject/ECS/Component/Component.js"></script>
+        <script type="text/javascript" src="./script/GameObject/ECS/Component/DerivedComponent/TransformComponent.js"></script>
 
-        <script type="text/javascript" src="./script/GameObject/Actor/Actor.js"></script>
-        <script type="text/javascript" src="./script/GameObject/Actor/GenerateActor.js"></script>
-        <script type="text/javascript" src="./script/GameObject/Actor/ActorManager.js"></script>
+        <script type="text/javascript" src="./script/GameObject/ECS/Entity/Entity.js"></script>
+
+        <script type="text/javascript" src="./script/GameObject/Manager/EntityManager.js"></script>
+        <script type="text/javascript" src="./script/GameObject/Manager/SystemManager.js"></script>
 
         <script type="text/javascript" src="./script/Scene/Scene.js"></script>
         <script type="text/javascript" src="./script/Scene/Title.js"></script>

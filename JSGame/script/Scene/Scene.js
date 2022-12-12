@@ -2,7 +2,7 @@
 class IScene {
     /**constructor*/
     constructor(){
-        this.sceneThree = new THREE.Scene();
+        //this.sceneThree = new THREE.Scene();
     }//constructor
 
     /**初期化 virtual method*/

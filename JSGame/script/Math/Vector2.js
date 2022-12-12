@@ -1,6 +1,6 @@
 /**二次元ベクトル*/
 class Vector2 {
-    /**
+    /**constructor
      * @param {number} x - x成分
      * @param {number} y - y成分 */
     constructor(x=0, y=0){
