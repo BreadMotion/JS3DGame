@@ -4,7 +4,7 @@ const EntityManager = {
     entities : [],
 
     /**@return {Array<IEntity>}*/
-    get Entities(){ return this.entities; },
+    get Entities(){ return this.entities; },// get Entities
 
     /**初期化*/
     Initialize : function(){
@@ -17,8 +17,9 @@ const EntityManager = {
         this.enitities = [];
     },//Clear
 
+    /**エンティティを生成する*/
     AddEntity : function(entity){
-        if(entity !== undefined){
+        if(entity != undefined){
             this.entities.push(entity);
             return entity;
         }
@@ -27,7 +28,7 @@ const EntityManager = {
             this.entities.push(newEntity);
             return newEntity;
         }
-    },//AddEntity
+    },//function AddEntity
 
     RemoveEntity : function(entity){
         this.entities = this.entities.filter(obj => !(obj == entity));

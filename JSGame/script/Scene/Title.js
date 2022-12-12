@@ -28,7 +28,7 @@ class Title extends IScene {
         const renderSystem = SystemManager.AddSystem(new RenderSystem());
 
         const entity = EntityManager.AddEntity();
-        new VelocityComponent(0.0, 0.0).AttachTo(entity);
+        new VelocityComponent(0.0, 0.0, 0.0).AttachTo(entity);
         new RenderComponent(renderSystem, new THREE.BoxGeometry(400,400,400), new THREE.MeshNormalMaterial()).AttachTo(entity);
     }//GenerateActorAtSceneStart
 

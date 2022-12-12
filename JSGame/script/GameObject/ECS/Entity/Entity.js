@@ -1,11 +1,12 @@
 /**ゲームオブジェクトの基盤**/
 class IEntity{
-    /**所有しているコンポーネント*/
+    /**所有しているコンポーネント
+     * @type {Array<IComponent>} components*/
     components = [];
     
     /**constructor*/
     constructor(){
-      new TransformComponent(0.0,0.0).AttachTo(this);
+      new TransformComponent(new Vector3(0,0,0), new Quaternion()).AttachTo(this);
     }//constructor
 
     /**コンポーネントを追加する
@@ -17,22 +18,23 @@ class IEntity{
    }//function AddComponent
 
    /**コンポーネントがあれば参照を返す
-    * @param {ComponentType} componentType*/
+    * @param {IComponent.property} componentType*/
    GetComponent(componentType){
-    return this.components.find(com => com instanceof componentType);
+    const findObjects = this.components.find(com => com === GetClass(componentType));
+    return findObjects == undefined ? undefined : findObjects[0];
    }// function GetComponent
 
    /**コンポーネントがあるか確認する
-    * @param {ComponentType} componentType*/
+    * @param {IComponent.property} componentType*/
    HasComponent(componentType){
-    return this.components.some(com => com instanceof componentType);
+    return this.components.some(com => com === GetClass(componentType));
    }//function HasComponent
 
    /**コンポーネントを削除する
     * @param{ID} ID
-    * @return {componentType} componentType*/
+    * @return {IComponent.property} componentType*/
    RemoveComponent(componentType){
     this.components.delete(component);
-    this.components = this.components.filter(com => !(com instanceof componentType));
+    this.components = this.components.filter(com => !(com === GetClass(componentType)));
    }//function RemoveComponent
 }//class Entity
