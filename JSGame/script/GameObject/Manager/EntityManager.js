@@ -9,6 +9,7 @@ const EntityManager = {
     /**初期化*/
     Initialize : function(){
         this.entities = [];
+        this.entities.push(new SceneEntity());
     },//Iinitialize
 
     /**保持しているエンティティオブジェクトの全消去*/

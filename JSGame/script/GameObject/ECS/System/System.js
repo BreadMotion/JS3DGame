@@ -10,8 +10,15 @@ class ISystem{
     PostUpdate(){}//function PostUpdate
 
     /**コンポーネントの型を指定して、その型を持つエンティティを返すメソッド
-     * @return {componentType} componentType */
+     * @param {componentType} componentType 
+     * @return {Array<IEntity>} entity*/
     GetEntity(componentType){
         return EntityManager.entities.filter(entity => entity.HasComponent(componentType));
     }//function GetEntity
+
+    /**SceneEntityを取得する
+     * @return {IEntity} sceneEntity*/
+    GetSceneEntity(){
+        return EntityManager.entities[0];
+    }//function GetSceneEntity
 }//class System

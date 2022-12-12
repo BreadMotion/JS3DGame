@@ -1,7 +1,10 @@
 /**ゲームオブジェクトの拡張オブジェクト**/
 class IComponent{
-    /**コンポーネントの型*/
-    static componentType = Symbol();
+    /**@type {componentType} componentType*/
+   // static componentType = Symbol();
+
+    /**constructor*/
+    constructor(){}
 
     /**コンポーネントをエンティティに追加するメソッド
      * @param {IEntity} entity

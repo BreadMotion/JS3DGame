@@ -2,10 +2,11 @@
 class IEntity{
     /**所有しているコンポーネント*/
     components = [];
+    
     /**constructor*/
     constructor(){
-      new TransformComponent().AttachTo(this);
-    }
+      new TransformComponent(0.0,0.0).AttachTo(this);
+    }//constructor
 
     /**コンポーネントを追加する
      * @param {IComponent} component

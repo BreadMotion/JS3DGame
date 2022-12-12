@@ -1,4 +1,9 @@
 class TransformComponent extends IComponent{
-    static componentType = Symbol();
-    position = new Vector2(0.0, 0.0);
+    /**constructor*/
+    constructor(x,y,z){
+        super();
+
+       /**@type {Vector2} position*/
+       this.position = new Vector2(0.0, 0.0);
+    }//constructor
 }//class TransformComponent

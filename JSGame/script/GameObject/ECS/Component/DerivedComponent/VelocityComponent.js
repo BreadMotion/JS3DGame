@@ -1,4 +1,9 @@
 class VelocityComponent extends IComponent{
-    static componentType = Symbol();
-    velocity = new Vector2(0.0, 0.0);
+    /**constructor*/
+    constructor(){
+        super();
+        
+        /**@type {Vector2} velocity*/
+        this.velocity = new Vector2(0.0, 0.0);
+    }//constructor
 }//class TransformComponent
