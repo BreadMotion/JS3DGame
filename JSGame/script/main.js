@@ -16,6 +16,9 @@
     window.canvasID[0] = "mainCanvas";
     window.canvasSelector[0] = '#canvas';
 
+    window.innerWidth = 1920;
+    window.innerHeight = 1080;
+
 //アプリケーションの初期化イベント
 window.addEventListener('load', ()=> {
     //ゲームで使用するアプリケーションのインスタンスの初期化
@@ -27,8 +30,8 @@ window.addEventListener('load', ()=> {
     App.AddCanvas(
         window.canvasID[0], 
         canvas3DObject,
-        window.innerWidth - window.canvasBringLength,
-        window.innerHeight  - window.canvasBringLength
+        window.innerWidth,
+        window.innerHeight
     );
 
     //ロード

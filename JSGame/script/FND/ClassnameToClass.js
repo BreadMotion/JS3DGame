@@ -9,7 +9,6 @@ function GetClass(classname){
  * 
  * let classobj2 = newclass2();
  * classobj2 instanceof SampleClass > true */
-
  function castToFish(animalObject) {
      return Object.assign(new FishObject(),  animalObject)
 }

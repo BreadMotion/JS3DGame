@@ -21,15 +21,19 @@ class Title extends IScene {
 
     /**エンティティを構築*/
     GenerateEntityAtSceneStart(){
-        EntityManager.Initialize();
         SystemManager.Initialize();
+        EntityManager.Initialize();
 
+        SystemManager.AddSystem(new RenderSystem());
         SystemManager.AddSystem(new MovementSystem());
-        const renderSystem = SystemManager.AddSystem(new RenderSystem());
 
-        const entity = EntityManager.AddEntity();
-        new VelocityComponent(0.0, 0.0, 0.0).AttachTo(entity);
-        new RenderComponent(renderSystem, new THREE.BoxGeometry(400,400,400), new THREE.MeshNormalMaterial()).AttachTo(entity);
+        const geoEntity = EntityManager.AddEntity();
+        new VelocityComponent(0.0, 0.0, 0.0).AttachTo(geoEntity);
+        new GeometryComponent(SystemManager.GetSystem(RenderSystem), new THREE.BoxGeometry(400,400,400), new THREE.MeshNormalMaterial()).AttachTo(geoEntity);
+
+        const ambLightEntity = EntityManager.AddEntity();
+        new AmbientLightComponent(SystemManager.GetSystem(RenderSystem), 0xFFFFFF, 1.0).AttachTo(ambLightEntity);
+        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(ambLightEntity.GetComponent(AmbientLightComponent).light);
     }//GenerateActorAtSceneStart
 
     //-----------------------override method------------------//

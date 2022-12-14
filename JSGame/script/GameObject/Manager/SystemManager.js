@@ -20,6 +20,12 @@ const SystemManager = {
         return system;
     },//function AddSystem
 
+    /**システム取得関数*
+     * @param {ISystem.property} systemClass*/
+    GetSystem : function(systemClass){
+        return this.systems.find(system => system.constructor === systemClass);
+    },//function GetSystem
+
     /**更新関数*/
     Update : function(){
         for(let system of this.systems){

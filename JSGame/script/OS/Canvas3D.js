@@ -5,7 +5,12 @@ class Canvas3D extends ICanvas{
         super(canvas);
 
         /** @type {WebGLRenderer} */
-        this.renderer = new THREE.WebGLRenderer({canvas: canvas});
+        this.renderer = new THREE.WebGLRenderer({
+            canvas: canvas,
+            //alpha: true,
+            antialias: true
+        });
+        //this.renderer.setSize(canvas.width,canvas.height);
     }//constructor
 
     /** @return {WebGLRenderer}*/
