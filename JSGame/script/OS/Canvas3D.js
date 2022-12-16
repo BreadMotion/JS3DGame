@@ -11,6 +11,7 @@ class Canvas3D extends ICanvas{
             antialias: true
         });
         //this.renderer.setSize(canvas.width,canvas.height);
+        document.body.appendChild(this.renderer.domElement);
     }//constructor
 
     /** @return {WebGLRenderer}*/

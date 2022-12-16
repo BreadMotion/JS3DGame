@@ -1,17 +1,25 @@
 /**ゲームオブジェクトの拡張オブジェクト**/
 class IComponent{
     /**@type {componentType} componentType*/
-   // static componentType = Symbol();
+    //static componentType = Symbol();
 
     /**constructor*/
-    constructor(){}
+    constructor(){
+        this.owner = null;
+    }//constructor
+
+    /**PreInitialize*/
+    PreInitialize(){}
+
+    /**Initialize*/
+    Initialize(){}
 
     /**コンポーネントをエンティティに追加するメソッド
      * @param {IEntity} entity
      * @return {IEntity} owner*/
     AttachTo(entity){
-        entity.AddComponent(this);
         this.owner = entity;
+        entity.AddComponent(this);
         return this.owner;
     }//function AttachTo
 

@@ -17,7 +17,7 @@ class Title extends IScene {
             SceneManager.Use('Game');
             this.startTime = 0;
         }
-    }//CheckChangeScene
+    }//function CheckChangeScene
 
     /**エンティティを構築*/
     GenerateEntityAtSceneStart(){
@@ -28,13 +28,12 @@ class Title extends IScene {
         SystemManager.AddSystem(new MovementSystem());
 
         const geoEntity = EntityManager.AddEntity();
-        new VelocityComponent(0.0, 0.0, 0.0).AttachTo(geoEntity);
-        new GeometryComponent(SystemManager.GetSystem(RenderSystem), new THREE.BoxGeometry(400,400,400), new THREE.MeshNormalMaterial()).AttachTo(geoEntity);
+        new VelocityComponent(new Vector3(0.0, 0.0, 0.0)).AttachTo(geoEntity);
+        new GeometryComponent(new THREE.BoxGeometry(400,400,400), new THREE.MeshNormalMaterial()).AttachTo(geoEntity);
 
         const ambLightEntity = EntityManager.AddEntity();
-        new AmbientLightComponent(SystemManager.GetSystem(RenderSystem), 0xFFFFFF, 1.0).AttachTo(ambLightEntity);
-        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(ambLightEntity.GetComponent(AmbientLightComponent).light);
-    }//GenerateActorAtSceneStart
+        new AmbientLightComponent(0xFFFFFF, 1.0).AttachTo(ambLightEntity);
+    }//function GenerateActorAtSceneStart
 
     //-----------------------override method------------------//
     /**初期化　オーバーライド*/

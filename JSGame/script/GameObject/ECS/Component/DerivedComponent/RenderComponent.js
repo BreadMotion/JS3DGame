@@ -1,9 +1,8 @@
 class GeometryComponent extends IComponent{
     /**constructor
-     * @param {RenderSystem} renderSystem
      * @param {THREE.Geometry} geometry
      * @param {THREE.Material} material*/
-    constructor(renderSystem, geometry, material){
+    constructor(geometry, material){
         super();
 
         /** @type {THREE.Geometry}*/
@@ -14,98 +13,121 @@ class GeometryComponent extends IComponent{
         
         /** @type {THREE.Mesh}*/
         this.mesh = new THREE.Mesh(this.geometry, this.material);
-        renderSystem.GetSceneEntity().scene.add(this.mesh);
     }//constructor
+
+    /**PreInitialize*/
+    PreInitialize(){
+        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(this.mesh);
+    }//function PreInitialize
 }//class GeometryComponent
 
 class AmbientLightComponent extends IComponent{
     /**constructor
-     * @param {RenderSystem} renderSystem
      * @param {ColorCode} color
      * @param {Number} intencity*/
-    constructor(renderSystem, color, intencity){
+    constructor(color, intencity){
         super();
 
         /** @type {THREE.AmbientLight}*/
         this.light = new THREE.AmbientLight(color,intencity);
     }//constructor
+
+    /**PreInitialize*/
+    PreInitialize(){
+        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(this.light);
+    }//function PreInitialize
 }//class AmbientLightComponent
 
 class DirectionalLightComponent extends IComponent{
     /**constructor
-     * @param {RenderSystem} renderSystem
      * @param {ColorCode} color,
      * @param {Number} intencity*/
-    constructor(renderSystem, color, intencity){
+    constructor(color, intencity){
         super();
         
         /** @type {THREE.DirectionalLight}*/
         this.light = new THREE.DirectionalLight(color,intencity);
-        renderSystem.GetSceneEntity().scene.add(this.light);
     }//constructor
+
+    /**PreInitialize*/
+    PreInitialize(){
+        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(this.light);
+    }//function PreInitialize
 }//class DirectionalLightComponent
 
 class HemisphereLightComponent extends IComponent{
     /**constructor
-     * @param {RenderSystem} renderSystem
      * @param {ColorCode} skyColor,
      * @param {ColorCode} groundColor,
      * @param {Number} intencity*/
-    constructor(renderSystem, skyColor, groundColor, intencity){
+    constructor(skyColor, groundColor, intencity){
         super();
         
         /** @type {THREE.HemispereLight}*/
         this.light = new THREE.HemispereLight(skyColor,groundColor,intencity);
-        renderSystem.GetSceneEntity().scene.add(this.light);
     }//constructor
+
+    /**PreInitialize*/
+    PreInitialize(){
+        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(this.light);
+    }//function PreInitialize
 }//class HemisphereLightComponent
 
 class PointLightComponent extends IComponent{
     /**constructor
-     * @param {RenderSystem} renderSystem
      * @param {ColorCode} color,
      * @param {Number} intencity,
      * @param {Number} distance,
      * @param {Number} subIntencity*/
-    constructor(renderSystem, color,intencity,distance,subIntencity){
+    constructor(color,intencity,distance,subIntencity){
         super();
         
         /** @type {THREE.PointLight}*/
         this.light = new THREE.PointLight(color,intencity,distance,subIntencity);
-        renderSystem.GetSceneEntity().scene.add(this.light);
     }//constructor
+
+    /**PreInitialize*/
+    PreInitialize(){
+        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(this.light);
+    }//function PreInitialize
 }//class PointLightComponent
 
 class SpotLightComponent extends IComponent{
     /**constructor
-     * @param {RenderSystem} renderSystem
      * @param {ColorCode} color
      * @param {Number} intencity
      * @param {Number} distance
      * @param {number} angle
      * @param {Number} penumbra
      * @param {Number} decay*/
-    constructor(renderSystem, color, intencity,distance,angle,penumbra,decay){
+    constructor(color, intencity,distance,angle,penumbra,decay){
         super();
         
         /** @type {THREE.SpotLight}*/
         this.light = new THREE.SpotLight(color,intencity,distance,angle,penumbra,decay);
-        renderSystem.GetSceneEntity().scene.add(this.light);
     }//constructor
+
+    /**PreInitialize*/
+    PreInitialize(){
+        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(this.light);
+    }//function PreInitialize
 }//class SpotLightComponent
 
 class RectLightComponent extends IComponent{
     /**constructor
-     * @param {RenderSystem} renderSystem
      * @param {ColorCode} color
      * @param {Number} intencity
      * @param {Number} width,
      * @param {Number} height*/
-    constructor(renderSystem, color,intencity,width,height){
+    constructor(color,intencity,width,height){
         super();
         
         /** @type {THREE.RectAreaLight}*/
         this.light = new THREE.RectAreaLight(color,intencity,width,height);
-        renderSystem.GetSceneEntity().scene.add(this.light);
     }//constructor
+
+    /**PreInitialize*/
+    PreInitialize(){
+        SystemManager.GetSystem(RenderSystem).GetSceneEntity().scene.add(this.light);
+    }//function PreInitialize
 }//class RectLightComponent
