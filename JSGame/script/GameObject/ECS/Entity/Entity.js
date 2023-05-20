@@ -1,12 +1,12 @@
 /**ゲームオブジェクトの基盤**/
-class IEntity{
+class IEntity extends THREE.Object3D{ // 継承したことことによる設計の変化はRenderComponent のSpotLightComponentのConstructorに記載している。
     /**所有しているコンポーネント
      * @type {Array<IComponent>} components*/
     components = [];
     
     /**constructor*/
     constructor(){
-      new TransformComponent(new Vector3(0,0,0), new Quaternion()).AttachTo(this);
+      //new TransformComponent(new Vector3(0,0,0), new Quaternion()).AttachTo(this);
     }//constructor
 
     /**コンポーネントを追加する

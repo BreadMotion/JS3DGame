@@ -105,6 +105,9 @@ class SpotLightComponent extends IComponent{
         
         /** @type {THREE.SpotLight}*/
         this.light = new THREE.SpotLight(color,intencity,distance,angle,penumbra,decay);
+        
+        //恐らくこうなる
+        //this.owner.group(this.light);
     }//constructor
 
     /**PreInitialize*/

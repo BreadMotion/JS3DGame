@@ -31,8 +31,9 @@ class Title extends IScene {
         new VelocityComponent(new Vector3(0.0, 0.0, 0.0)).AttachTo(geoEntity);
         new GeometryComponent(new THREE.BoxGeometry(400,400,400), new THREE.MeshNormalMaterial()).AttachTo(geoEntity);
 
-        const ambLightEntity = EntityManager.AddEntity();
-        new AmbientLightComponent(0xFFFFFF, 1.0).AttachTo(ambLightEntity);
+        const lightEntity = EntityManager.AddEntity();
+        new AmbientLightComponent(0xFFFFFF, 1.0).AttachTo(lightEntity);
+        new DirectionalLightComponent(0xFFFFFF, 1.0).AttachTo(lightEntity);
     }//function GenerateActorAtSceneStart
 
     //-----------------------override method------------------//
